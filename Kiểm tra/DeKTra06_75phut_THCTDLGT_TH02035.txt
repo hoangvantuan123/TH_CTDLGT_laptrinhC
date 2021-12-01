@@ -1,0 +1,15 @@
+ĐỀ KIỂM TRA LẬP TRÌNH
+MÔN THỰC CẤU TRÚC DỮ LIỆU VÀ GIẢI THUẬT
+Thời gian: 75 phút
+Đề số: 06
+
+Bài 1 (thctdlgt-kt-de06bai1.cpp):
+Viết chương trình C/C++ cài đặt giải thuật sắp xếp chèn (insertSort).
+Áp dụng giải thuật đã cài đặt để sắp xếp dãy khóa tăng dần,
+dãy khóa là các số nguyên có n phần tử đọc vào mảng động từ tệp văn bản 'daykhoa-kt-de06bai1.txt'.
+Đưa ra màn hình dãy khóa ban đầu và dãy khóa đã sắp xếp.
+
+Bài 2 (thctdlgt-kt-de06bai2.cpp):
+Cài đặt cấu trúc dữ liệu ngăn xếp sử dụng cấu trúc lưu trữ phân tán, ngăn xếp có phần tử dữ liệu là ký tự.
+Sử dụng ngăn xếp đã cài đặt để chuyển một số nguyên dương n nhập vào từ bàn phím sang số hex.
+Ghi số nguyên dương n và số hex ra tệp văn bản ‘thctdlgt-thi-ketqua.txt’.
