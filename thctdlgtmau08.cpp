@@ -24,8 +24,7 @@ bool isEmpty(Stack ST);
 int main()
 {
     //Cai dat cau truc luu tru ke tiep cua ngan xep
-    Stack ST={-
-	1};
+    Stack ST={-1};
 
     //Khai bao bien
     int n,thuong,du;

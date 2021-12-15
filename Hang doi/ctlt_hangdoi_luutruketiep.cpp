@@ -4,7 +4,9 @@
 // DE :
 /*
    *BTVN: Cài đặt cấu trúc dữ liệu hàng đợi lưu trữ kế tiếp có phần tử dữ liệu là số nguyên.
-    Ứng dụng hàng đợi cho bài toán: Đọc dãy số nguyên dương từ tệp văn bản ‘d    aysonguyen.txt’, trên tệp không có thông tin về số lượng số, tách thành dãy số lẻ và dãy số chẵn theo đúng thứ tự xuất hiện trên tệp, đưa 2 dãy số ra màn hình.
+    Ứng dụng hàng đợi cho bài toán: Đọc dãy số nguyên dương từ tệp văn bản ‘d    aysonguyen.txt’,
+    trên tệp không có thông tin về số lượng số, tách thành dãy số lẻ và dãy số chẵn theo đúng thứ tự xuất hiện trên tệp,
+    đưa 2 dãy số ra màn hình.
    */
 #include <iostream>
 #include <stdio.h>

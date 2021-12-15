@@ -9,20 +9,21 @@ Ghi lại tệp sao cho tất cả sinh viên nữ ở đầu danh sách, tất 
 điểm tbc vẫn giảm dần trong nhóm nam và nữ.
 */
 
-#include<iostream>
-#include<stdio.h>
+#include <iostream>
+#include <stdio.h>
 
 #define N 8
 
 using namespace std;
 
 //Khai bao cau truc
-struct SinhVien{
+struct SinhVien
+{
     int MaSV;
     char hoTen;
     float diem;
-}
-struct Queue{
+} struct Queue
+{
     int Q[N];
     int F;
     int R;
@@ -37,27 +38,29 @@ bool isEmpty(Queue Q);
 int main()
 {
 
-    cout<<endl;
+    cout << endl;
     return 0;
 }
 //===Dinh nghia ham===
-void CQInsert(int x, Queue &Q){
-    if(Q.F== 1 && Q.R== N || Q.R+1 == Q.F){
-	cout<<"Hang doi da day! "<<endl;
-	return
+void CQInsert(int x, Queue &Q)
+{
+    if (Q.F == 1 && Q.R == N || Q.R + 1 == Q.F)
+    {
+        cout << "Hang doi da day! " << endl;
+        return
     }
-    if(Q.F == Q.R && Q.R==0){
-	Q.F =1;
-	Q.R =1;
-    }else{
-
+    if (Q.F == Q.R && Q.R == 0)
+    {
+        Q.F = 1;
+        Q.R = 1;
+    }
+    else
+    {
     }
 }
-int CQDelete(Queue &Q){
-
+int CQDelete(Queue &Q)
+{
 }
-bool isEmpty(Queue Q){
-
+bool isEmpty(Queue Q)
+{
 }
-
-

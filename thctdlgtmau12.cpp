@@ -13,9 +13,9 @@ từ tệp văn bản 'daysonguyen.txt', trên tệp không có thông tin về 
 Tạo danh sách liên kết đơn Q bao gồm các phần tử dữ liệu của P nhưng theo thứ tự đảo ngược.
 Xóa một nút trên DSLK đơn P mà có phần tử dữ liệu bằng x nhập vào từ bàn phím.
 */
-#include<iostream>
-#include<fstream>
-#include<stdio.h>
+#include <iostream>
+#include <fstream>
+#include <stdio.h>
 
 using namespace std;
 
@@ -27,17 +27,17 @@ struct node
 };
 
 //Khai bao cai dat cac phep toan tren DSLKD
-node* SLPostInsert(node* &F,node *M,int x);
-node* SLPreInsert(node* &F,node *M,int x);
-void SLDelete(node* &F,node *M);
+node *SLPostInsert(node *&F, node *M, int x);
+node *SLPreInsert(node *&F, node *M, int x);
+void SLDelete(node *&F, node *M);
 void SLDisplay(node *F);
-node* SLSearch(node *F,int x);
+node *SLSearch(node *F, int x);
 
 //===chuong trinh chinh===
 int main()
 {
     //Cai dat cau truc luu tru cua DSLKD P va Q
-    node *P=NULL,*Q=NULL,*M;
+    node *P = NULL, *Q = NULL, *M;
 
     //Khai bao tep doc vao
     ifstream fin("daysonguyen.txt");
@@ -46,115 +46,123 @@ int main()
     int x;
 
     //Doc tung so cua day so tu tep va bo sung vao cuoi DSLKD P
-    while(fin>>x) M = SLPostInsert(P,M,x);
+    while (fin >> x)
+        M = SLPostInsert(P, M, x);
 
-    cout<<"Day so nguyen trong DSLKD P la:\n";
+    cout << "Day so nguyen trong DSLKD P la:\n";
     SLDisplay(P);
 
     //Tao DSLKD Q chua cac phan tu la dao nguoc cua P
     M = P;
-    while(M)
+    while (M)
     {
-	x = M->infor;
+        x = M->infor;
 
-	//Bo sung x vao truoc Q
-	SLPreInsert(Q,Q,x);
+        //Bo sung x vao truoc Q
+        SLPreInsert(Q, Q, x);
 
-	//Cho M tro sang nut tiep theo
-	M = M->link;
+        //Cho M tro sang nut tiep theo
+        M = M->link;
     }
 
-    cout<<"\n\nDay so nguyen trong DSLKD Q la:\n";
+    cout << "\n\nDay so nguyen trong DSLKD Q la:\n";
     SLDisplay(Q);
 
     //Xoa phan tu trong DSLKD P co gia tri bang x
-    cout<<"\n\nNhap vao phan tu x can xoa: ";
-    cin>>x;
+    cout << "\n\nNhap vao phan tu x can xoa: ";
+    cin >> x;
 
-    M = SLSearch(P,x);
+    M = SLSearch(P, x);
 
-    if(M)
+    if (M)
     {
-	//Xoa nut M co phan tu bang x
-	SLDelete(P,M);
+        //Xoa nut M co phan tu bang x
+        SLDelete(P, M);
 
-	//Dua ra P sau khi xoa
-	cout<<"\n\nDSLKD P sau khi xoa phan tu x la:\n";
-	SLDisplay(P);
+        //Dua ra P sau khi xoa
+        cout << "\n\nDSLKD P sau khi xoa phan tu x la:\n";
+        SLDisplay(P);
     }
-    else cout<<"\nTrong DSLKD P khong co phan tu bang "<<x;
+    else
+        cout << "\nTrong DSLKD P khong co phan tu bang " << x;
 
-    cout<<endl;
+    cout << endl;
     return 0;
 }
 //===dinh nghia ham===
-node* SLPostInsert(node* &F,node *M,int x)
+node *SLPostInsert(node *&F, node *M, int x)
 {
     //Tao nut moi chua phan tu x
-    node *N=new node;
-    N->infor = x; N->link = NULL;
+    node *N = new node;
+    N->infor = x;
+    N->link = NULL;
 
     //Noi nut moi vao sau nut M trong DSLKD
-    if(F==NULL) F=N;
+    if (F == NULL)
+        F = N;
     else
     {
-	N->link = M->link;
-	M->link = N;
+        N->link = M->link;
+        M->link = N;
     }
 
     //Tra ve dia chi nut moi bo sung
     return N;
 }
 
-node* SLPreInsert(node* &F,node*M,int x)
+node *SLPreInsert(node *&F, node *M, int x)
 {
     //Tao nut chua phan tu x
     node *N = new node;
     N->infor = x;
-    N->L = NULL;N->R= NULL;
+    N->L = NULL;
+    N->R = NULL;
 
     //Noi nut moi vao truoc nut M trong DSLKD
-    if(F==NULL) F=N;
-    else if(M=>L==NULL &&M->R !- NULL)
+    if (F == NULL)
+        F = N;
+    else if (M = > L == NULL && M->R !-NULL)
     {
-	M->L=N;
-	N->R=M;
-
+        M->L = N;
+        N->R = M;
     }
     else
     {
-	//Tim den nut P dung truoc nut M
-	node *P=F;
-	while(P->link != M) P = P->link;
+        //Tim den nut P dung truoc nut M
+        node *P = F;
+        while (P->link != M)
+            P = P->link;
 
-	//Noi nut moi vao truoc nut M
-	P->link = N;
-	N->link = M;
+        //Noi nut moi vao truoc nut M
+        P->link = N;
+        N->link = M;
     }
 
     //Tra ve dia chi nut moi bo sung
     return N;
 }
 
-void DLDelete(node* &F,node *M)
+void DLDelete(node *&F, node *M)
 {
     //1.Truong hop rong
-    if(F==NULL)
+    if (F == NULL)
     {
-	cout<<"Danh sach lien ket don da rong.";
-	return;
+        cout << "Danh sach lien ket don da rong.";
+        return;
     }
 
     //2.Ngat ket noi voi nut M
-    if(M==F) F=F->link;
+    if (M == F)
+        F = F->link;
     else
     {
-	//Tim den nut P truoc nut M
-	node *P=F;
-	while(P->link != M) P=P->link;
+        //Tim den nut P truoc nut FM
+        node *P = F;
+        while (P->link != M)
+            P = P->link;
 
-	//Noi nut truoc M voi nut sau M
-	P->link = M->link;
+        //Noi nut truoc M voi nut sau M
+        P->link = M->link;
     }
 
     //3.Huy nut M
@@ -163,24 +171,23 @@ void DLDelete(node* &F,node *M)
 
 void DLDisplay(node *F)
 {
-    while(F)
+    while (F)
     {
-	cout<<F->infor<<"  ";
-	F = F->link;
+        cout << F->infor << "  ";
+        F = F->link;
     }
 }
 
-node* DLSearch(node *F,int x)
+node *DLSearch(node *F, int x)
 {
     //Tim nut P co phan tu bang x
-    node *P=F;
-    while(P)
-	if(P->infor == x) break;
-	else P = P->link;
+    node *P = F;
+    while (P)
+        if (P->infor == x)
+            break;
+        else
+            P = P->link;
 
     //Tra ve ket qua
     return P;
 }
-
-
-
