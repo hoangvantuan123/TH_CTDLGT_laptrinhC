@@ -11,7 +11,7 @@ ra màn hình.
 
 using namespace std;
 
-//Khai bao ham cai dat giai thuat
+//Khai bao ham cai dat giai thuat nhanh
 void quickSort(int *a, int L, int R);
 
 //===chuong trinh chinh===

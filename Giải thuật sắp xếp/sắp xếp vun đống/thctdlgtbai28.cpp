@@ -11,10 +11,9 @@ ra màn hình.
 
 using namespace std;
 
-//Khai bao ham cai dat giai thuat noi bot
-/* void swap(int &x, int &y); */
-void bubbleSort(int *a, int n);
-
+//Khai bao ham cai dat giai thuat chon
+void adjust(int *a, int i, int n);
+void heapSort(int *a, int n);
 //===chuong trinh chinh===
 int main()
 {
@@ -32,7 +31,7 @@ int main()
         fin >> a[m];
         cout << "\t" << a[m];
     }
-    bubbleSort(a, n);
+    heapSort(a, n);
 
     cout << "\nDay khoa sau khi sap xep la: ";
     for (m = 0; m < n; m++)
@@ -45,17 +44,44 @@ int main()
     return 0;
 }
 //===Dinh nghia ham===
-/* void swap(int &x, int &y)
+void adjust(int *a, int i, int n)
 {
-    int temp = x;
-    x = y;
-    y = temp;
-} */
-void bubbleSort(int *a, int n)
+    // 1. Khởi đâù
+
+   int key = a[i];
+    int j = 2 * i;
+
+    // 2. Chon con ung voi khoa lon nhat trong 2 con của i
+    while (j <= n)
+    {
+        if (j < n && a[j] < a[j + 1])
+            j= j + 1;
+        // 3.
+
+        if (key > a[j])
+        break;
+        {
+            a[j / 2] =key;
+
+        }
+        a[j / 2] = a[i];
+        j = 2*j;
+    }
+        swap(a[j/2], a[i]);
+
+
+}
+void heapSort(int *a, int n)
 {
-    int i, j;
-    for (int i = 0; i < n - 2; i++)
-        for (int j = n - 1; j > i; j--)
-            if (a[j] < a[j - 1])
-                swap(a[j], a[j - 1]);
+    int tmp;
+    for (int i = n / 2 - 1; i >= 0; i--)
+        adjust(a, n, i);
+    for (int i = n - 1; i >= 2; i--)
+    {
+      tmp = a[0];
+      a[0] = a[i];
+      a[i] = tmp;
+      adjust(a, i , 0);
+
+    }
 }

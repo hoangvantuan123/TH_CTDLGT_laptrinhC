@@ -12,7 +12,6 @@ ra màn hình.
 using namespace std;
 
 //Khai bao ham cai dat giai thuat chon
-void swap(int &x, int &y);
 void bubbleSort(int *a, int n);
 
 //===chuong trinh chinh===
@@ -45,11 +44,7 @@ int main()
     return 0;
 }
 //===Dinh nghia ham===
-void swap(int &x, int &y){
-    int temp = x;
-    x = y;
-    y = temp;
-}
+
 void bubbleSort(int *a, int n)
 {
     int i, j;
