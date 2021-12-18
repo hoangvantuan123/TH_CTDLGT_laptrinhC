@@ -1,10 +1,11 @@
 
 //De:
 /*
-B�i 31(thctdlgtbai31.cpp). Cho d?y kh�a t�ng d?n c� n ph?n t? l� c�c s? nguy�n l�u tr? trong
-t?p v�n b?n 'daykhoatangdan.txt'. �?c d?y kh�a t? t?p v�o m?ng �?ng. C�i �?t gi?i thu?t
-t?m ki?m nh? ph�n d?ng kh�ng �? quy �? t?m kh�a c� gi� tr? b?ng x, n?u t?m th?y th?
-tr? v? v? tr� c?a kh�a, n?u kh�ng t?m th?y th? tr? v? 0.
+Bài 31(thctdlgtbai31.cpp). Cho dãy khóa n phần tử là các số nguyên lưu trữ trong
+tệp văn bản 'daykhoatangdan.txt'. Đọc dãy khóa từ tệp vào mảng động. Cài đặt giải thuật
+tìm kiếm nhị phân dạng không đệ quy để tìm khóa có giá trị bằng x, nếu tìm thấy thì
+trả về vị trí của khóa, nếu không tìm thấy thì trả về 0.
+
 */
 #include<iostream>
 #include<fstream>
@@ -30,7 +31,7 @@ int main()
     a = new int[n];
 
     //Doc mang tu tep vao mang dong
-      cout <<"Day khoa duoc doc tu tep la \n";
+    cout <<"Day khoa duoc doc tu tep la \n";
     for(m=0; m<n; m++){
 	fin>>a[m];
     cout << a[m]<<" ";
