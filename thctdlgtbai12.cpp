@@ -37,7 +37,7 @@ int main()
     //Cai dat cau truc luu tru cua DSLKD
     node *P = NULL, *Q = NULL, *M;
     int x;
-    cout << "lz";
+    
     ifstream fin("tamgiac.txt");
     fin >> x;
     cout << x;

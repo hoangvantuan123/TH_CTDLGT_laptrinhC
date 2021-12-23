@@ -3,11 +3,12 @@
 // Ma SV :650024
 //DE :
 /*
- Bài t?p (ctdlgt-dslkd.cpp): Cài d?t c?u trúc d? li?u danh sách liên k?t don (DSLKD) có ph?n t? là s? nguyên v?i b?n phép toán:
- 1) B? sung ph?n t? x vào sau nút M
- 2) Lo?i b? nút M
- 3) Duy?t DSLKD
+Cài đặt cấu trúc dữ liệu danh sách liên kết đơn (DSLKD) có phần tử là số ngu    yên với bốn phép toán:
+   1) Bổ sung phần tử x vào sau nút M
+  2) Loại bỏ nút M
+  3) Duyệt DSLKD
  4) Ghép hai danh sách
+
 */
 #include <iostream>
 #include <stdio.h>
