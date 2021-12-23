@@ -82,7 +82,7 @@ int pop(node* &T)
     //Cho T tro xuong nut duoi
     T=T->link;
 
-    //Huy nut dinh va trả về phần tử đã loại bo
+    //Huy nut dinh va tráº£ vá» pháº§n tá»­ Ä‘Ã£ loáº¡i bo
     delete P;
     return tg;
 }
@@ -100,5 +100,4 @@ bool isPrime(int x)
     //x la nguyen to
     return 1;
 }
-
 
