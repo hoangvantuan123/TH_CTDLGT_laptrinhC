@@ -2,52 +2,80 @@
 số giảm dần. Mỗi tỉnh có thông tin về tỉnh, diện tích, dân số, danh sách n tỉnh đọc vào mảng động từ tệp
 văn bản "tinh.txt".Đưa ra màn hình danh sách các tỉnh ban đầu và sau khi sắp xếp.
  */
+
 #include <iostream>
 #include <stdio.h>
 #include <fstream>
 
 using namespace std;
 
-//Khai bao ham cai dat giai thuat noi bot
-/* void swap(int &x, int &y); */
+//Khai bao ham cai dat giai thuat sui bot
 void bubbleSort(int *a, int n);
 
 //===chuong trinh chinh===
 int main()
 {
-    ifstream fin("tinh.txt");
-    int *a, n, m;
+	ifstream fin("daykhoa.txt");
 
-    fin >> n;
+	if (!fin)
+	{
+		cout << "Khong doc duoc tep! ";
+		return -1;
+	}
+	// khia bao bien
+	int *a, n, m;
 
-    a = new int[n];
+	// doc tep
+	fin >> n;
+	a = new int[n];
+	cout << "Day khoa tu tep: ";
 
-    cout << "Danh sach duoc doc tu tep la: ";
+	for (m = 0; m < n; m++)
+	{
+		fin >> a[m];
+		cout << "\t" << a[m];
+	}
+	bubbleSort(a, n);
 
-    for (m = 0; m < n; m++)
-    {
-        fin >> a[m];
-        cout << "\t" << a[m];
-    }
-    bubbleSort(a, n);
+	cout << "\nDay khoa sau khi sap xep la-: ";
+	for (m = 0; m < n; m++)
+	{
 
-    cout << "\nDay khoa sau khi sap xep la: ";
-    for (m = 0; m < n; m++)
-    {
+		cout << "\t" << a[m];
+	}
+	// Huy mang dong
+	delete[] a;
 
-        cout << "\t" << a[m];
-    }
+	// Dong tep
+	fin.close();
 
-    cout << endl;
-    return 0;
+	cout << endl;
+	return 0;
 }
 //===Dinh nghia ham===
 
 void bubbleSort(int *a, int n)
 {
-    int i, j;
-    for (int i = 0; i < n - 2; i++)
-        for (int j = n - 1; j > i; j--)
-            if (a[j] < a[j - 1])
-                swap(a[j], a[j - 1]);
+	/* // sap xep tang dan
+	int i, j;
+	for (int i = 0; i < n - 1; i++)
+		for (int j = n - 1; j > i; j--)
+			if (a[j] < a[j - 1])
+			{
+				int tg = a[j];
+				a[j] = a[j - 1];
+				a[j - 1] = tg;
+			}
+ */
+	//sap xep giam dan
+	int i, j;
+	for (int i = 0; i<n - 1; i++)
+		for (int j = n - 1; j>i; j--)
+			if (a[j] > a[j - 1])
+				{
+					int tg= a[j];
+					a[j] = a[j-1];
+					a[j-1] = tg ;
+				}
+
 }

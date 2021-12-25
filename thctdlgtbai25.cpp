@@ -54,6 +54,8 @@ int main()
 //=== Dinh nghia ham ===
 void insertSort(int *a, int n)
 {
+	
+	// sap xep tang dan  
     int tg, j;
     for (int i = 1; i < n; i++)
     {
@@ -67,4 +69,21 @@ void insertSort(int *a, int n)
         //Dua tg vao dung vi tri , chen vao sau j
         a[j + 1] = tg;
     }
+     
+    /*
+    // sap xep giam  dan  
+    int tg, j;
+    for (int i = 1; i < n; i++)
+    {
+        j = i - 1;
+        tg = a[i];
+        while (j > -1  && tg > a[j])
+        {
+            a[j + 1] = a[j];
+            j--;
+        }
+        //Dua tg vao dung vi tri , chen vao sau j
+        a[j + 1] = tg;
+    }
+    */
 }

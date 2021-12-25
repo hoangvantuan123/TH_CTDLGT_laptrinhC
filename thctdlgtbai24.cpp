@@ -7,66 +7,99 @@ ra màn hình.
 
 
 */
-#include<iostream>
-#include<stdio.h>
-#include<fstream>
+#include <iostream>
+#include <stdio.h>
+#include <fstream>
 
 using namespace std;
 
 //Khai bao ham cai dat giai thuat chon
-void selectionSort(int* a, int n);
+void selectionSort(int *a, int n);
 
 //===chuong trinh chinh===
 int main()
 {
-    ifstream fin("daykhoa.txt");
-    
-    if(!fin){
-    	cout<<"Khong doc duoc tep! ";
-    	return -1 ;  
-		  
-	} 
-	// Khai bao bien  
-    int *a, n,m;
-	// doc tep  
-    fin>>n;
+	ifstream fin("daykhoa.txt");
 
-    a = new int[n];
+	if (!fin)
+	{
+		cout << "Khong doc duoc tep! ";
+		return -1;
+	}
+	// Khai bao bien
+	int *a, n, m;
+	// doc tep
+	fin >> n;
 
-    cout<<"Day khoa tu tep: ";
+	a = new int[n];
 
-    for(m=0; m<n; m++){
-	fin>>a[m];
-	cout<<"\t"<<a[m];
-    }
-    selectionSort(a, n);
+	cout << "Day khoa tu tep: ";
 
-    cout<<"\nDay khoa sau khi sap xep la: ";
-    for(m=0; m<n; m++){
+	for (m = 0; m < n; m++)
+	{
+		fin >> a[m];
+		cout << "\t" << a[m];
+	}
+	selectionSort(a, n);
 
-	cout<<"\t"<<a[m];
-    }
-    
-    // Dong tep 
+	cout << "\nDay khoa sau khi sap xep la: ";
+	for (m = 0; m < n; m++)
+	{
+
+		cout << "\t" << a[m];
+	}
+
+	// Dong tep
 	fin.close();
 
-    cout<<endl;
-    return 0;
+	cout << endl;
+	return 0;
 }
 //===Dinh nghia ham===
-void selectionSort(int* a, int n){
-    int i,j,k,temp;
-    for(i=0; i<n-1; i++){
-	//Tìm phần tử nhỏ nhất ở vị trí k
-	k =i;
-	for( j=i+1; j <n; j++){
-	    if(a[j] < a[k])
-		k=j;
+void selectionSort(int *a, int n)
+{
+	// sap xep tang dan  
+	int i, j, k;
+	for (i = 0; i < n - 1; i++)
+	{
+		//Tìm phần tử nhỏ nhất ở vị trí k
+		k = i;
+		for (j = i + 1; j < n; j++)
+		{
+			if (a[j] < a[k])
+			{
+				k = j;
+			}
+		}
+		//Đổi chỗ phần tử nhỏ nhất ở vị trí k cho vị trí i
+		if (k != i)
+		{
+			int tg = a[k];
+			a[k] = a[i];
+			a[i] = tg;
+		}
 	}
-	//Đổi chỗ phần tử nhỏ nhất ở vị trí k cho vị trí i
-	if(k != i)
-	    temp = a[k];
-	    a[k] = a[i];
-	    a[i] = temp;
-    }
+	/*
+	// sap xep giam dan  
+	int i, j, k;
+	for (i = 0; i < n - 1; i++)
+	{
+		//Tìm phần tử nhỏ nhất ở vị trí k
+		k = i;
+		for (j = i + 1; j < n; j++)
+		{
+			if (a[j] > a[k])
+			{
+				k = j;
+			}
+		}
+		//Đổi chỗ phần tử nhỏ nhất ở vị trí k cho vị trí i
+		if (k != i)
+		{
+			int tg = a[k];
+			a[k] = a[i];
+			a[i] = tg;
+		}
+	}
+	*/
 }
