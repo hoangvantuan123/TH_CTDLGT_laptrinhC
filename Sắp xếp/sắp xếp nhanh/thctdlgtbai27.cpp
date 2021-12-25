@@ -1,8 +1,8 @@
 /*
-Bài 27(thctdlgtbai27.cpp). Cho dãy khóa n phần tử là các số nguyên lưu trữ trong
-tệp văn bản 'daykhoa.txt'. Đọc dãy khóa từ tệp vào mảng động. Cài đặt giải thuật sắp xếp nhanh
-để sắp xếp dãy khóa trong mảng động tăng dần. Đưa dãy khóa ban đầu và dãy khóa đã sắp xếp
-ra màn hình.
+B�i 27(thctdlgtbai27.cpp). Cho d�y kh�a n ph?n t? l� c�c s? nguy�n luu tr? trong
+t?p van b?n 'daykhoa.txt'. �?c d�y kh�a t? t?p v�o m?ng d?ng. C�i d?t gi?i thu?t s?p x?p nhanh
+d? s?p x?p d�y kh�a trong m?ng d?ng tang d?n. �ua d�y kh�a ban d?u v� d�y kh�a d� s?p x?p
+ra m�n h�nh.
 
 */
 #include <iostream>
@@ -11,15 +11,21 @@ ra màn hình.
 
 using namespace std;
 
-//Khai bao ham cai dat giai thuat nhanh
+//Khai bao ham cai dat giai thuat
 void quickSort(int *a, int L, int R);
 
 //===chuong trinh chinh===
 int main()
 {
     ifstream fin("daykhoa.txt");
+     if(!fin){
+    	cout<<"Khong doc duoc tep! ";
+    	return -1 ;  
+		  
+	} 
+	// Khai bao bien 
     int *a, n, m;
-
+	// doc tep 
     fin >> n;
 
     a = new int[n];
@@ -39,36 +45,43 @@ int main()
 
         cout << "\t" << a[m];
     }
-
+	
+	 // Dong tep 
+	fin.close();
+	
     cout << endl;
     return 0;
 }
 //===Dinh nghia ham===
 void quickSort(int *a, int L, int R)
 {
-     if (L >= R) // Khi d� m?ng c� 0 ph?n t?, d?ng
-          return;
-     else
-     {
-          int x = a[R];   //Chon phan tu cuoi lam chot
-          int j = R - 1;  // Phan tu thu 2 tu ben phai manr
-          int i = L;        // i la phan tu dau tien
-          while (true)
-          {
-               // Trong khi a[i] nho hon x, tang i len
-               while (a[i] < x && i <= j) i++;
-
-               // Trong khi a[j] lon hon x, giam j xuong
-               while (a[j] > x && j >= i) j--;
-              // Sau 2 vong lap while a[i] > x va a[j] < x
-               if (i >= j)                    // neu i vuot qua j thi ta cho dung lai
-                   break;
-               swap(a[i], a[j]);             // Đổi chỗ cho phần tử nhỏ hơn về j, lớn hơn về phải x
-               i++;                     // roi ta xet i tang len cung luc do ta cho j giam  xuong
-               j--;
-          }
-           swap(a[i], a[R]);        // doi cho x ve giua mang
-           quickSort(a, L, i - 1);   //de quy ve trai
-           quickSort(a, i + 1, R);   // de quy ve phai
-     }
+    if (L >= R) {// Khi d? m?ng c? 0 ph?n t?, d?ng
+        return;
+    }
+    int i = L ;
+	int j = R ;
+	int k = ( L+R)/2 ;
+	int x = a[k];
+	
+	do {
+		// Duyet tu ben trai sang va duyet tu ben phai  
+		while(a[i] < x){
+			i++;
+		}
+		while( a[j] > x){
+			j--;
+		}
+		if(i < j){
+			int tg = a[i];
+			a[i] = a[j];
+			a[j] = tg ;
+		}
+	} 
+	while(i<j);
+	
+	quickSort(a,L,j-1);
+	quickSort(a,j+1,R);
+    
+          
 }
+

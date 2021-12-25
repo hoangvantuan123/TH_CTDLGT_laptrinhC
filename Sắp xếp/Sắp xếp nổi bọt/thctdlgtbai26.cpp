@@ -11,20 +11,25 @@ ra màn hình.
 
 using namespace std;
 
-//Khai bao ham cai dat giai thuat noi bot
-/* void swap(int &x, int &y); */
+//Khai bao ham cai dat giai thuat sui bot  
 void bubbleSort(int *a, int n);
 
 //===chuong trinh chinh===
 int main()
 {
     ifstream fin("daykhoa.txt");
+    
+    if(!fin){
+    	cout<<"Khong doc duoc tep! ";
+    	return -1 ;  
+		  
+	} 
+	// khia bao bien 
     int *a, n, m;
-
+    
+	// doc tep  
     fin >> n;
-
     a = new int[n];
-
     cout << "Day khoa tu tep: ";
 
     for (m = 0; m < n; m++)
@@ -34,28 +39,49 @@ int main()
     }
     bubbleSort(a, n);
 
-    cout << "\nDay khoa sau khi sap xep la: ";
+    cout << "\nDay khoa sau khi sap xep la-: ";
     for (m = 0; m < n; m++)
     {
 
         cout << "\t" << a[m];
     }
+    // Huy mang dong 
+	delete [] a ; 
+	
+	// Dong tep 
+	fin.close();
 
     cout << endl;
     return 0;
 }
 //===Dinh nghia ham===
-/* void swap(int &x, int &y)
-{
-    int temp = x;
-    x = y;
-    y = temp;
-} */
+
 void bubbleSort(int *a, int n)
 {
+	// sap xep tang dan  
     int i, j;
-    for (int i = 0; i < n - 2; i++)
-        for (int j = n - 1; j > i; j--)
-            if (a[j] < a[j - 1])
-                swap(a[j], a[j - 1]);
+	for (int i = 0; i<n - 1; i++)
+		for (int j = n - 1; j>i; j--)
+			if (a[j] < a[j - 1])
+				{
+					int tg= a[j];
+					a[j] = a[j-1];
+					a[j-1] = tg ; 
+				}
+				
+	/* sap xep giam dan  
+	int i, j;
+	for (int i = 0; i<n - 1; i++)
+		for (int j = n - 1; j>i; j--)
+			if (a[j] > a[j - 1])
+				{
+					int tg= a[j];
+					a[j] = a[j-1];
+					a[j-1] = tg ; 
+				}
+	*/			
+	
+	
+				
+			
 }

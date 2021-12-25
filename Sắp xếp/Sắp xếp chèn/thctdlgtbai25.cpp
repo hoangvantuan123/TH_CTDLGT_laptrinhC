@@ -17,8 +17,16 @@ void insertSort(int *a, int n);
 int main()
 {
     ifstream fin("daykhoa.txt");
+    
+    if(!fin){
+    	cout<<"Khong doc duoc tep! ";
+    	return -1 ;  
+		  
+	} 
+	// khai bao bien  
     int *a, n, m;
-
+    
+	// doc tep  
     fin >> n;
 
     a = new int[n];
@@ -37,7 +45,9 @@ int main()
     {
         cout << "\t" << a[m];
     }
-
+	// Dong tep 
+	fin.close();
+	 
     cout << endl;
     return 0;
 }
@@ -49,7 +59,7 @@ void insertSort(int *a, int n)
     {
         j = i - 1;
         tg = a[i];
-        while (j >= 0 && tg < a[j])
+        while (j > -1  && tg < a[j])
         {
             a[j + 1] = a[j];
             j--;
