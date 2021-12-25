@@ -18,8 +18,14 @@ void quickSort(int *a, int L, int R);
 int main()
 {
     ifstream fin("daykhoa.txt");
+     if(!fin){
+    	cout<<"Khong doc duoc tep! ";
+    	return -1 ;  
+		  
+	} 
+	// Khai bao bien 
     int *a, n, m;
-
+	// doc tep 
     fin >> n;
 
     a = new int[n];
@@ -39,37 +45,43 @@ int main()
 
         cout << "\t" << a[m];
     }
-
+	
+	 // Dong tep 
+	fin.close();
+	
     cout << endl;
     return 0;
 }
 //===Dinh nghia ham===
 void quickSort(int *a, int L, int R)
 {
-     if (L >= R) // Khi d? m?ng c? 0 ph?n t?, d?ng
-          return;
-     else
-     {
-          int x = a[R];   //Chon phan tu cuoi lam chot
-          int j = R - 1;  // Phan tu thu 2 tu ben phai manr
-          int i = L;        // i la phan tu dau tien
-          while (true)
-          {
-               // Trong khi a[i] nho hon x, tang i len
-               while (a[i] < x && i <= j) i++;
-
-               // Trong khi a[j] lon hon x, giam j xuong
-               while (a[j] > x && j >= i) j--;
-              // Sau 2 vong lap while a[i] > x va a[j] < x
-               if (i >= j)                    // neu i vuot qua j thi ta cho dung lai
-                   break;
-               swap(a[i], a[j]);             // Ð?i ch? cho ph?n t? nh? hon v? j, l?n hon v? ph?i x
-               i++;                     // roi ta xet i tang len cung luc do ta cho j giam  xuong
-               j--;
-          }
-           swap(a[i], a[R]);        // doi cho x ve giua mang
-           quickSort(a, L, i - 1);   //de quy ve trai
-           quickSort(a, i + 1, R);   // de quy ve phai
-     }
+    if (L >= R) {// Khi d? m?ng c? 0 ph?n t?, d?ng
+        return;
+    }
+    int i = L ;
+	int j = R ;
+	int k = ( L+R)/2 ;
+	int x = a[k];
+	
+	do {
+		// Duyet tu ben trai sang va duyet tu ben phai  
+		while(a[i] < x){
+			i++;
+		}
+		while( a[j] > x){
+			j--;
+		}
+		if(i < j){
+			int tg = a[i];
+			a[i] = a[j];
+			a[j] = tg ;
+		}
+	} 
+	while(i<j);
+	
+	quickSort(a,L,j-1);
+	quickSort(a,j+1,R);
+    
+          
 }
 

@@ -16,7 +16,7 @@ Xóa tất cả các nút mà có phần tử dữ liệu bằng x nhập vào t
 
 #include<iostream>
 #include<stdio.h>
-//Khai bao kieu cau truc nut nho cua DSLKD
+//Khai bao kieu cau truc nut nho cua DSLKK
 struct node
 {
     int infor;
@@ -26,7 +26,7 @@ struct node
 struct DList{
     node *L,*R;
 };
-//Khai bao cai dat cac phep toan tren DSLKD
+//Khai bao cai dat cac phep toan tren DSLKK
 node* DLPostInsert(node* &F,node *M,int x);
 node* DLPreInsert(node* &F,node *M,int x);
 void DLDelete(node* &F,node *M);
@@ -64,6 +64,11 @@ node* DLPostInsert(node* &F,node *M,int x){
 
 }
 node* DLPreInsert(node* &F,node *M,int x){
+
+    node *N = new node;
+    N->infor = x;
+    N->left = N->right = NULL;
+
 
 }
 void DLDelete(node* &F,node *M){

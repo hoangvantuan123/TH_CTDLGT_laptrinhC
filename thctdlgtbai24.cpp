@@ -20,8 +20,15 @@ void selectionSort(int* a, int n);
 int main()
 {
     ifstream fin("daykhoa.txt");
+    
+    if(!fin){
+    	cout<<"Khong doc duoc tep! ";
+    	return -1 ;  
+		  
+	} 
+	// Khai bao bien  
     int *a, n,m;
-
+	// doc tep  
     fin>>n;
 
     a = new int[n];
@@ -39,6 +46,9 @@ int main()
 
 	cout<<"\t"<<a[m];
     }
+    
+    // Dong tep 
+	fin.close();
 
     cout<<endl;
     return 0;
